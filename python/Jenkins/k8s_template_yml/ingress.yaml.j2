@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ project_name }}
+  namespace: {{ view_name }}
+spec:
+  rules:
+    - host: {{ project_name }}.test.17dengji.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ project_name }}
+                port:
+                  number: 80
+
